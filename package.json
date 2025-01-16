@@ -38,6 +38,9 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
