@@ -12,8 +12,8 @@
     "lint": "eslint --ext .js,.jsx ./src",
     "lint:fix": "eslint --fix --ext .js,.jsx ./src",
     "clear-all": "rm -rf build node_modules",
-    "re-start": "rm -rf build node_modules && yarn install && yarn start",
-    "re-build": "rm -rf build node_modules && yarn install && yarn build"
+    "re-start": "rm -rf build node_modules && npm install && npm start",
+    "re-build": "rm -rf build node_modules && npm install && npm build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,7 +39,8 @@
     ]
   },
   "engines": {
-    "node": "20.x"
+    "node": "20.x",
+    "npm": ">=6.0.0"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
