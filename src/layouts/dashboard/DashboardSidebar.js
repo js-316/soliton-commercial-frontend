@@ -58,7 +58,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
       }}
     >
-      <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
+      <Box sx={{ px: 2.5, py: 3, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Logo />
       </Box>
 
@@ -66,7 +66,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         <SystemNameStyle>
           <Box sx={{ ml: 2 }}>
             <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-              Odoo
+              Commercial
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               Commercial Department
@@ -75,8 +75,6 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         </SystemNameStyle>
       </Box>
 
-  
-      
       <NavSection navConfig={navConfig} />
 
       <Box sx={{ flexGrow: 1 }} />
