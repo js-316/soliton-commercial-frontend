@@ -10,6 +10,8 @@ import NotFound from './pages/Page404';
 import Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
+import Logout from './pages/Logout';
+
 
 // ----------------------------------------------------------------------
 
@@ -32,6 +34,10 @@ export default function Router() {
     {
       path: 'register',
       element: <Register />,
+    },
+    {
+      path: 'logout',
+      element: <Logout />,
     },
     {
       path: '/',

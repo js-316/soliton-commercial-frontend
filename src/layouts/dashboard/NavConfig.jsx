@@ -126,7 +126,7 @@ const navConfig = [
   },
   {
     title: 'Logout',
-    path: '/login',
+    path: '/logout',
     icon: getIcon('eva:lock-fill'),
   },
   {
