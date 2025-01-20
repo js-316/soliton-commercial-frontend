@@ -1,9 +1,11 @@
 import { Link as RouterLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Button, Typography, Container, Box } from '@mui/material';
 // components
 import Page from '../components/Page';
+import { selectUser } from '../features/auth/authSlice';
 
 // ----------------------------------------------------------------------
 
@@ -20,6 +22,8 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Page404() {
+  const user = useSelector(selectUser);
+
   return (
     <Page title="404 Page Not Found">
       <Container>
@@ -39,7 +43,12 @@ export default function Page404() {
             sx={{ height: 260, mx: 'auto', my: { xs: 5, sm: 10 } }}
           />
 
-          <Button to="/" size="large" variant="contained" component={RouterLink}>
+          <Button
+            to={user ? "/dashboard/app" : "/login"}
+            size="large"
+            variant="contained"
+            component={RouterLink}
+          >
             Go to Home
           </Button>
         </ContentStyle>
