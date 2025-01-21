@@ -16,11 +16,11 @@ const navConfig = [
     path: '/client-acquisition',
     icon: getIcon('eva:people-fill'),
     children: [
-      { title: 'Prospecting', path: '/client-acquisition/prospecting' },
-      { title: 'Proposal', path: '/client-acquisition/proposal' },
-      { title: 'Negotiations', path: '/client-acquisition/negotiations' },
-      { title: 'Closed (Lost)', path: '/client-acquisition/closed-lost' },
-      { title: 'Closed (Won)', path: '/client-acquisition/closed-won' },
+      { title: 'Prospecting', path: '/dashboard/client-acquisition/prospecting' },
+      { title: 'Proposal', path: '/dashboard/client-acquisition/proposal' },
+      { title: 'Negotiations', path: '/dashboard/client-acquisition/negotiations' },
+      { title: 'Closed (Lost)', path: '/dashboard/client-acquisition/closed-lost' },
+      { title: 'Closed (Won)', path: '/dashboard/client-acquisition/closed-won' },
     ],
   },
   {

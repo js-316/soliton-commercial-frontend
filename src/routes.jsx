@@ -12,6 +12,12 @@ import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import Logout from './pages/Logout';
 import RequireAuth from './components/RequireAuth';
+// client acquisition pages
+import Prospecting from './pages/client-acquisition/Prospecting';
+import Proposal from './pages/client-acquisition/Proposal';
+import Negotiations from './pages/client-acquisition/Negotiations';
+import ClosedLost from './pages/client-acquisition/ClosedLost';
+import ClosedWon from './pages/client-acquisition/ClosedWon';
 
 // ----------------------------------------------------------------------
 
@@ -41,6 +47,12 @@ export default function Router() {
             { path: 'products', element: <Products /> },
             { path: 'blog', element: <Blog /> },
             { path: 'logout', element: <Logout /> },
+            // Client Acquisition routes
+            { path: 'client-acquisition/prospecting', element: <Prospecting /> },
+            { path: 'client-acquisition/proposal', element: <Proposal /> },
+            { path: 'client-acquisition/negotiations', element: <Negotiations /> },
+            { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
+            { path: 'client-acquisition/closed-won', element: <ClosedWon /> },
           ],
         },
       ],

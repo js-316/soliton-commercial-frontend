@@ -8,7 +8,8 @@ import { Box, Drawer, Typography } from '@mui/material';
 import useResponsive from '../../hooks/useResponsive';
 // components
 import Logo from '../../components/Logo';
-import Scrollbar from '../../components/Scrollbar';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 import NavSection from '../../components/NavSection';
 //
 import navConfig from './NavConfig';
@@ -52,12 +53,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   }, [pathname]);
 
   const renderContent = (
-    <Scrollbar
-      sx={{
-        height: 1,
-        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
-      }}
-    >
+    <SimpleBar style={{ height: '100%' }}>
       <Box sx={{ px: 2.5, py: 3, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Logo />
       </Box>
@@ -78,7 +74,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       <NavSection navConfig={navConfig} />
 
       <Box sx={{ flexGrow: 1 }} />
-    </Scrollbar>
+    </SimpleBar>
   );
 
   return (
