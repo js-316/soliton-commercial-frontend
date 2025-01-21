@@ -7,9 +7,9 @@ export default defineConfig({
     port: 3000,
   },
   esbuild: {
-    loader: {
-      '.js': 'jsx',
-    },
+    loader: 
+      'jsx',
+    
   },
   define: {
     'process.env': process.env,
