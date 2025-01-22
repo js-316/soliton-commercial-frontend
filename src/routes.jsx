@@ -27,7 +27,7 @@ import PaymentStatus from './pages/onboarding/PaymentStatus';
 import Product from './pages/onboarding/Product';
 import Revenue from './pages/onboarding/Revenue.jsx';
 import RegisterDeal from './pages/client-acquisition/RegisterDeal';
-
+import CreateQuotation from './pages/client-acquisition/CreateQuotation';
 
 
 // ----------------------------------------------------------------------
@@ -63,6 +63,7 @@ export default function Router() {
         { path: 'client-acquisition/prospecting', element: <Prospecting /> },
         {path: 'client-acquisition/prospecting/register', element: <RegisterDeal />},
         { path: 'client-acquisition/proposal', element: <Proposal /> },
+        {path: 'client-acquisition/proposal/create', element: <CreateQuotation />},
         { path: 'client-acquisition/negotiations', element: <Negotiations /> },
         { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
         { path: 'client-acquisition/closed-won', element: <ClosedWon /> },

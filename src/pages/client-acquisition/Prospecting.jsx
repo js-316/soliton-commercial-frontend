@@ -22,6 +22,45 @@ const prospects = [
     followUp: 'Meeting - Set Date',
     finalSteps: 'Pending - Promising',
   },
+  {
+    date: '16.08.24',
+    prospect: 'Savanna Fiber',
+    position: 'CTO Savanna Fibre',
+    contact: 'Joash Omoke',
+    phone: '0784326789',
+    opportunity: 'Purchase of Splicing machines',
+    activity: 'Meeting',
+    stage: 'Requested - Quotations',
+    outcome: 'Prospectus',
+    followUp: 'Call back',
+    finalSteps: 'Closed',
+  },
+  {
+    date: '20.08.24',
+    prospect: 'Iway Africa',
+    position: 'COO Iway Africa',
+    contact: 'Christine',
+    phone: '0772426274',
+    opportunity: 'Purchase of 730D Dark fiber Test',
+    activity: 'Phone call',
+    stage: 'Requested - Call Back',
+    outcome: 'Neutral',
+    followUp: 'Meeting - Set Date',
+    finalSteps: 'Pending - Promising',
+  },
+  {
+    date: '21.08.24',
+    prospect: 'Canal box',
+    position: 'COP',
+    contact: 'Viken',
+    phone: '0326106800',
+    opportunity: 'Installation of CCTV',
+    activity: 'Meeting',
+    stage: 'Requested - Proposal',
+    outcome: 'Positive',
+    followUp: 'Email - Sent',
+    finalSteps: 'Pending - Promising',
+  },
   // Add more prospects as needed
 ];
 
@@ -54,15 +93,15 @@ const Prospecting = () => {
   return (
     <Container>
       <Typography variant="h4" gutterBottom>
-        New Deals / Opportunities
+        New Prospects
       </Typography>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 2 }}>
         <Button variant="contained" color="primary" component={Link} to="/dashboard/client-acquisition/prospecting/register">
-          Register New Deal
+          Register New Prospect
         </Button>
       </Box>
-      <Grid container spacing={2} sx={{ marginBottom: 2 }}>
-        <Grid item xs={12} sm={6} md={4}>
+      <Grid container spacing={1} sx={{ marginBottom: 2 }}>
+        <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth>
             <InputLabel>Activity</InputLabel>
             <Select
@@ -79,7 +118,7 @@ const Prospecting = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth>
             <InputLabel>Stage</InputLabel>
             <Select
@@ -96,7 +135,7 @@ const Prospecting = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth>
             <InputLabel>Outcome</InputLabel>
             <Select
@@ -113,7 +152,7 @@ const Prospecting = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth>
             <InputLabel>Follow-up</InputLabel>
             <Select
@@ -130,7 +169,7 @@ const Prospecting = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth>
             <InputLabel>Final Step</InputLabel>
             <Select

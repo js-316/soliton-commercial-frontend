@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Typography, TextField, Button, Grid, Paper, Box, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import { Container, Typography, TextField, Button, Grid, Paper, Box, MenuItem, Select, InputLabel, FormControl, IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const activities = ['Meeting', 'Phone call', 'Email - Request for a meeting', 'Email - Sent'];
 const stages = ['Meeting held', 'Requested - Quotations', 'Requested - Call Back', 'Requested - Meeting', 'Requested - Services of interest', 'Requested - Online Meeting', 'Requested - Proposal', 'Market Analysis'];
@@ -8,12 +10,14 @@ const followUps = ['Call back', 'Email - Sent', 'Requested - Meeting', 'Meeting 
 const finalSteps = ['Closed', 'Pending - Promising', 'N/A'];
 
 const RegisterDeal = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     client: '',
     project: '',
     opportunity: '',
     email: '',
     phone: '',
+    position: '',
     activity: '',
     stage: '',
     outcome: '',
@@ -36,9 +40,14 @@ const RegisterDeal = () => {
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>
-        Register New Deal
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
+        <IconButton onClick={() => navigate('/dashboard/client-acquisition/prospecting')}>
+          <ArrowBackIcon />
+        </IconButton>
+        <Typography variant="h4" gutterBottom>
+          Register New Prospect
+        </Typography>
+      </Box>
       <Paper elevation={3} sx={{ padding: 3 }}>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -91,6 +100,16 @@ const RegisterDeal = () => {
                 fullWidth
                 required
               />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <TextField
+                    label="Position"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleChange}
+                    fullWidth
+                    required
+                />
             </Grid>
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
