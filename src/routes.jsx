@@ -25,7 +25,9 @@ import Lpo from './pages/onboarding/Lpo';
 import PaymentTerms from './pages/onboarding/PaymentTerms';
 import PaymentStatus from './pages/onboarding/PaymentStatus';
 import Product from './pages/onboarding/Product';
-import Revenue from './pages/onboarding/Revenue';
+import Revenue from './pages/onboarding/Revenue.jsx';
+import RegisterDeal from './pages/client-acquisition/RegisterDeal';
+
 
 
 // ----------------------------------------------------------------------
@@ -59,6 +61,7 @@ export default function Router() {
         { path: 'logout', element: <Logout /> },
         // Client Acquisition routes
         { path: 'client-acquisition/prospecting', element: <Prospecting /> },
+        {path: 'client-acquisition/prospecting/register', element: <RegisterDeal />},
         { path: 'client-acquisition/proposal', element: <Proposal /> },
         { path: 'client-acquisition/negotiations', element: <Negotiations /> },
         { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
