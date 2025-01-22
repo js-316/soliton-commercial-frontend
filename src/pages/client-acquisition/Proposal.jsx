@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Typography, Grid, Paper, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Dialog, DialogTitle, DialogContent, DialogActions, TextField, IconButton } from '@mui/material';
+import { Container, Typography, Grid, Paper, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-
 
 const proposals = [
   {
@@ -66,6 +65,10 @@ const proposals = [
 const Proposal = () => {
   const [selectedProposal, setSelectedProposal] = useState(null);
   const [open, setOpen] = useState(false);
+  const [pipFiles, setPipFiles] = useState([]);
+  const [surveyFiles, setSurveyFiles] = useState([]);
+  const [quotationFiles, setQuotationFiles] = useState([]);
+  const [otherFiles, setOtherFiles] = useState([]);
 
   const handleViewClick = (proposal) => {
     setSelectedProposal(proposal);
@@ -75,6 +78,10 @@ const Proposal = () => {
   const handleClose = () => {
     setOpen(false);
     setSelectedProposal(null);
+  };
+
+  const handleFileChange = (e, setFiles) => {
+    setFiles(Array.from(e.target.files));
   };
 
   return (
@@ -117,9 +124,9 @@ const Proposal = () => {
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogTitle>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Button onClick={handleClose} color="primary">
-            Back
-          </Button>
+            <Button onClick={handleClose} color="primary">
+              Back
+            </Button>
             <Typography variant="h6" sx={{ marginLeft: 2 }}>
               Proposal Details
             </Typography>
@@ -228,7 +235,7 @@ const Proposal = () => {
                 />
                 <Button variant="contained" component="label">
                   Upload PiP Document
-                  <input type="file" hidden />
+                  <input type="file" multiple hidden onChange={(e) => handleFileChange(e, setPipFiles)} />
                 </Button>
               </Grid>
               <Grid item xs={12}>
@@ -239,8 +246,27 @@ const Proposal = () => {
                   margin="normal"
                 />
                 <Button variant="contained" component="label">
-                  Upload Survey Request Document
-                  <input type="file" hidden />
+                  Upload Survey Request 
+                  <input type="file" multiple hidden onChange={(e) => handleFileChange(e, setSurveyFiles)} />
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h6">Quotation Document</Typography>
+                <TextField
+                  label="Quotation"
+                  fullWidth
+                  margin="normal"
+                />
+                <Button variant="contained" component="label">
+                  Upload Quotation 
+                  <input type="file" multiple hidden onChange={(e) => handleFileChange(e, setQuotationFiles)} />
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h6">Other Documents</Typography>
+                <Button variant="contained" component="label">
+                  Upload Other Documents
+                  <input type="file" multiple hidden onChange={(e) => handleFileChange(e, setOtherFiles)} />
                 </Button>
               </Grid>
             </Grid>
