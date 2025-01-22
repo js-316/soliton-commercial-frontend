@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Typography, Grid, Paper, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Dialog, DialogTitle, DialogContent, DialogActions, TextField, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 const proposals = [
   {
@@ -117,9 +117,9 @@ const Proposal = () => {
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogTitle>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton onClick={handleClose}>
-              <ArrowBackIcon />
-            </IconButton>
+          <Button onClick={handleClose} color="primary">
+            Back
+          </Button>
             <Typography variant="h6" sx={{ marginLeft: 2 }}>
               Proposal Details
             </Typography>

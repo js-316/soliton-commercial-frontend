@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Grid, Paper, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const CreateQuotation = () => {
   const navigate = useNavigate();
@@ -30,7 +29,7 @@ const CreateQuotation = () => {
     <Container>
       <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
         <Button variant="contained" color="secondary" onClick={() => navigate('/dashboard/client-acquisition/proposal')}>
-          <ArrowBackIcon />
+          Back
         </Button>
         <Typography variant="h4" gutterBottom sx={{ marginLeft: 2 }}>
           Create New Quotation

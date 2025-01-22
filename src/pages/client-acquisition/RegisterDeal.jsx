@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Typography, TextField, Button, Grid, Paper, Box, MenuItem, Select, InputLabel, FormControl, IconButton } from '@mui/material';
+import { Container, Typography, TextField, Button, Grid, Paper, Box, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const activities = ['Meeting', 'Phone call', 'Email - Request for a meeting', 'Email - Sent'];
 const stages = ['Meeting held', 'Requested - Quotations', 'Requested - Call Back', 'Requested - Meeting', 'Requested - Services of interest', 'Requested - Online Meeting', 'Requested - Proposal', 'Market Analysis'];
@@ -41,10 +40,10 @@ const RegisterDeal = () => {
   return (
     <Container>
       <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
-        <IconButton onClick={() => navigate('/dashboard/client-acquisition/prospecting')}>
-          <ArrowBackIcon />
-        </IconButton>
-        <Typography variant="h4" gutterBottom>
+        <Button variant="contained" color="secondary" onClick={() => navigate('/dashboard/client-acquisition/prospecting')}>
+          Back
+        </Button>
+        <Typography variant="h4" gutterBottom sx={{ marginLeft: 2 }}>
           Register New Prospect
         </Typography>
       </Box>
