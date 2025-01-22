@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Typography, Grid, Paper, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import { Link } from 'react-router-dom';
 
+
 const activities = ['Meeting', 'Phone call', 'Email - Request for a meeting', 'Email - Sent'];
 const stages = ['Meeting held', 'Requested - Quotations', 'Requested - Call Back', 'Requested - Meeting', 'Requested - Services of interest', 'Requested - Online Meeting', 'Requested - Proposal', 'Market Analysis'];
 const outcomes = ['Prospectus', 'Pending', 'Positive', 'Neutral', 'Not interested'];
@@ -10,6 +11,7 @@ const finalSteps = ['Closed', 'Pending - Promising', 'N/A'];
 
 const prospects = [
   {
+    id: 1,
     date: '08.08.24',
     prospect: 'Airtel Uganda',
     position: 'Network Director',
@@ -23,6 +25,7 @@ const prospects = [
     finalSteps: 'Pending - Promising',
   },
   {
+    id: 2,
     date: '16.08.24',
     prospect: 'Savanna Fiber',
     position: 'CTO Savanna Fibre',
@@ -36,6 +39,7 @@ const prospects = [
     finalSteps: 'Closed',
   },
   {
+    id: 3,
     date: '20.08.24',
     prospect: 'Iway Africa',
     position: 'COO Iway Africa',
@@ -49,6 +53,7 @@ const prospects = [
     finalSteps: 'Pending - Promising',
   },
   {
+    id: 4,
     date: '21.08.24',
     prospect: 'Canal box',
     position: 'COP',
@@ -191,6 +196,7 @@ const Prospecting = () => {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>#</TableCell>
               <TableCell>Date</TableCell>
               <TableCell>Prospect/Account</TableCell>
               <TableCell>Position</TableCell>
@@ -207,6 +213,7 @@ const Prospecting = () => {
           <TableBody>
             {filteredProspects.map((prospect, index) => (
               <TableRow key={index}>
+                <TableCell>{prospect.id}</TableCell>
                 <TableCell>{prospect.date}</TableCell>
                 <TableCell>{prospect.prospect}</TableCell>
                 <TableCell>{prospect.position}</TableCell>

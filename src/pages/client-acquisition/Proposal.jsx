@@ -98,6 +98,7 @@ const Proposal = () => {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>#</TableCell>
               <TableCell>Proposal</TableCell>
               <TableCell>Client</TableCell>
               <TableCell>Amount</TableCell>
@@ -107,6 +108,7 @@ const Proposal = () => {
           <TableBody>
             {proposals.map((proposal) => (
               <TableRow key={proposal.id}>
+                <TableCell>{proposal.id}</TableCell>
                 <TableCell>{proposal.proposal}</TableCell>
                 <TableCell>{proposal.client}</TableCell>
                 <TableCell>{proposal.amount}</TableCell>
