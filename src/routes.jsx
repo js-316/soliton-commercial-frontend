@@ -11,7 +11,7 @@ import Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import Logout from './pages/Logout';
-import RequireAuth from './components/RequireAuth';
+// import RequireAuth from './components/RequireAuth'; // Comment out or remove this line
 // client acquisition pages
 import Prospecting from './pages/client-acquisition/Prospecting';
 import Proposal from './pages/client-acquisition/Proposal';
@@ -27,7 +27,8 @@ export default function Router() {
       path: '/',
       element: <LogoOnlyLayout />,
       children: [
-        { path: '/', element: <Navigate to="/login" /> },
+        // { path: '/', element: <Navigate to="/login" /> },
+        { path: '/', element: <Navigate to="/dashboard/app" /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
         { path: '404', element: <NotFound /> },
@@ -36,25 +37,23 @@ export default function Router() {
     },
     {
       path: '/dashboard',
-      element: <RequireAuth />,
+      // element: <RequireAuth />,
+      element: <DashboardLayout />,
       children: [
         {
-          path: '',
-          element: <DashboardLayout />,
-          children: [
-            { path: 'app', element: <DashboardApp /> },
-            { path: 'user', element: <User /> },
-            { path: 'products', element: <Products /> },
-            { path: 'blog', element: <Blog /> },
-            { path: 'logout', element: <Logout /> },
-            // Client Acquisition routes
-            { path: 'client-acquisition/prospecting', element: <Prospecting /> },
-            { path: 'client-acquisition/proposal', element: <Proposal /> },
-            { path: 'client-acquisition/negotiations', element: <Negotiations /> },
-            { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
-            { path: 'client-acquisition/closed-won', element: <ClosedWon /> },
-          ],
+          path: 'app',
+          element: <DashboardApp />,
         },
+        { path: 'user', element: <User /> },
+        { path: 'products', element: <Products /> },
+        { path: 'blog', element: <Blog /> },
+        { path: 'logout', element: <Logout /> },
+        // Client Acquisition routes
+        { path: 'client-acquisition/prospecting', element: <Prospecting /> },
+        { path: 'client-acquisition/proposal', element: <Proposal /> },
+        { path: 'client-acquisition/negotiations', element: <Negotiations /> },
+        { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
+        { path: 'client-acquisition/closed-won', element: <ClosedWon /> },
       ],
     },
     {
