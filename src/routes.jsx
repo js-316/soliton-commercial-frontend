@@ -18,6 +18,15 @@ import Proposal from './pages/client-acquisition/Proposal';
 import Negotiations from './pages/client-acquisition/Negotiations';
 import ClosedLost from './pages/client-acquisition/ClosedLost';
 import ClosedWon from './pages/client-acquisition/ClosedWon';
+// onboarding pages
+import SignedContract from './pages/onboarding/SignedContract';
+import DirectiveCeoCco from './pages/onboarding/DirectiveCeoCco';
+import Lpo from './pages/onboarding/Lpo';
+import PaymentTerms from './pages/onboarding/PaymentTerms';
+import PaymentStatus from './pages/onboarding/PaymentStatus';
+import Product from './pages/onboarding/Product';
+import Revenue from './pages/onboarding/Revenue';
+
 
 // ----------------------------------------------------------------------
 
@@ -54,6 +63,14 @@ export default function Router() {
         { path: 'client-acquisition/negotiations', element: <Negotiations /> },
         { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
         { path: 'client-acquisition/closed-won', element: <ClosedWon /> },
+        // Onboarding routes
+        { path: 'onboarding/signed-contract', element: <SignedContract /> },
+        { path: 'onboarding/directive-ceo-cco', element: <DirectiveCeoCco /> },
+        { path: 'onboarding/lpo', element: <Lpo /> },
+        { path: 'onboarding/payment-terms', element: <PaymentTerms /> },
+        { path: 'onboarding/payment-status', element: <PaymentStatus /> },
+        { path: 'onboarding/product', element: <Product /> },
+        { path: 'onboarding/revenue', element: <Revenue /> },
       ],
     },
     {
