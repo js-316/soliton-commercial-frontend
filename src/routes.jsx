@@ -20,15 +20,16 @@ import ClosedLost from './pages/client-acquisition/ClosedLost';
 import ClosedWon from './pages/client-acquisition/ClosedWon';
 // onboarding pages
 import SignedContract from './pages/onboarding/SignedContract';
-import DirectiveCeoCco from './pages/onboarding/DirectiveCeoCco';
+import DirectiveCeoCco from './pages/onboarding/Onboarding';
 import Lpo from './pages/onboarding/Lpo';
 import PaymentTerms from './pages/onboarding/PaymentTerms';
-import PaymentStatus from './pages/onboarding/PaymentStatus';
+import PaymentStatus from './pages/onboarding/OnboardedDeals';
 import Product from './pages/onboarding/Product';
 import Revenue from './pages/onboarding/Revenue.jsx';
 import RegisterDeal from './pages/client-acquisition/RegisterDeal';
 import CreateQuotation from './pages/client-acquisition/CreateQuotation';
-
+import Onboarding from './pages/onboarding/Onboarding';
+import OnboardedDeals from './pages/onboarding/OnboardedDeals';
 
 // ----------------------------------------------------------------------
 
@@ -68,6 +69,8 @@ export default function Router() {
         { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
         { path: 'client-acquisition/closed-won', element: <ClosedWon /> },
         // Onboarding routes
+        {path: 'onboarding/on', element: <Onboarding />},
+        {path: 'onboarding/deals', element: <OnboardedDeals />},
         { path: 'onboarding/signed-contract', element: <SignedContract /> },
         { path: 'onboarding/directive-ceo-cco', element: <DirectiveCeoCco /> },
         { path: 'onboarding/lpo', element: <Lpo /> },
