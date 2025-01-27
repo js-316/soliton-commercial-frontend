@@ -11,7 +11,7 @@ import Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import Logout from './pages/Logout';
-// import RequireAuth from './components/RequireAuth'; // Comment out or remove this line
+import RequireAuth from './components/RequireAuth'; // Comment out or remove this line
 // client acquisition pages
 import Prospecting from './pages/client-acquisition/Prospecting';
 import Proposal from './pages/client-acquisition/Proposal';
@@ -39,8 +39,8 @@ export default function Router() {
       path: '/',
       element: <LogoOnlyLayout />,
       children: [
-        // { path: '/', element: <Navigate to="/login" /> },
-        { path: '/', element: <Navigate to="/dashboard/app" /> },
+        { path: '/', element: <Navigate to="/login" /> },
+        // { path: '/', element: <Navigate to="/dashboard/app" /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
         { path: '404', element: <NotFound /> },
@@ -49,35 +49,39 @@ export default function Router() {
     },
     {
       path: '/dashboard',
-      // element: <RequireAuth />,
-      element: <DashboardLayout />,
+      element: <RequireAuth />,
+      // element: <DashboardLayout />,
       children: [
         {
-          path: 'app',
-          element: <DashboardApp />,
+          path: '',
+          element: <DashboardLayout />,
+          children: [
+            {path: 'app', element: <DashboardApp />},
+            { path: 'user', element: <User /> },
+            { path: 'products', element: <Products /> },
+            { path: 'blog', element: <Blog /> },
+            { path: 'logout', element: <Logout /> },
+            // Client Acquisition routes
+            { path: 'client-acquisition/prospecting', element: <Prospecting /> },
+            {path: 'client-acquisition/prospecting/register', element: <RegisterDeal />},
+            { path: 'client-acquisition/proposal', element: <Proposal /> },
+            {path: 'client-acquisition/proposal/create', element: <CreateQuotation />},
+            { path: 'client-acquisition/negotiations', element: <Negotiations /> },
+            { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
+            { path: 'client-acquisition/closed-won', element: <ClosedWon /> },
+            // Onboarding routes
+            {path: 'onboarding/on', element: <Onboarding />},
+            {path: 'onboarding/deals', element: <OnboardedDeals />},
+            { path: 'onboarding/signed-contract', element: <SignedContract /> },
+            { path: 'onboarding/directive-ceo-cco', element: <DirectiveCeoCco /> },
+            { path: 'onboarding/lpo', element: <Lpo /> },
+            { path: 'onboarding/payment-terms', element: <PaymentTerms /> },
+            { path: 'onboarding/payment-status', element: <PaymentStatus /> },
+            { path: 'onboarding/product', element: <Product /> },
+            { path: 'onboarding/revenue', element: <Revenue /> },
+          ],
         },
-        { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog /> },
-        { path: 'logout', element: <Logout /> },
-        // Client Acquisition routes
-        { path: 'client-acquisition/prospecting', element: <Prospecting /> },
-        {path: 'client-acquisition/prospecting/register', element: <RegisterDeal />},
-        { path: 'client-acquisition/proposal', element: <Proposal /> },
-        {path: 'client-acquisition/proposal/create', element: <CreateQuotation />},
-        { path: 'client-acquisition/negotiations', element: <Negotiations /> },
-        { path: 'client-acquisition/closed-lost', element: <ClosedLost /> },
-        { path: 'client-acquisition/closed-won', element: <ClosedWon /> },
-        // Onboarding routes
-        {path: 'onboarding/on', element: <Onboarding />},
-        {path: 'onboarding/deals', element: <OnboardedDeals />},
-        { path: 'onboarding/signed-contract', element: <SignedContract /> },
-        { path: 'onboarding/directive-ceo-cco', element: <DirectiveCeoCco /> },
-        { path: 'onboarding/lpo', element: <Lpo /> },
-        { path: 'onboarding/payment-terms', element: <PaymentTerms /> },
-        { path: 'onboarding/payment-status', element: <PaymentStatus /> },
-        { path: 'onboarding/product', element: <Product /> },
-        { path: 'onboarding/revenue', element: <Revenue /> },
+       
       ],
     },
     {
