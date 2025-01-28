@@ -30,6 +30,14 @@ import RegisterDeal from './pages/client-acquisition/RegisterDeal';
 import CreateQuotation from './pages/client-acquisition/CreateQuotation';
 import Onboarding from './pages/onboarding/Onboarding';
 import OnboardedDeals from './pages/onboarding/OnboardedDeals';
+import Handover from './pages/account-management/Handover';
+import ManagedServices from './pages/account-management/ManagedServices';
+import AcceptanceDocumentation from './pages/account-management/AcceptanceDocumentation';
+import AcceptanceStatus from './pages/account-management/AcceptanceStatus';
+import ProjectClosure from './pages/account-management/ProjectClosure';
+import Ageing from './pages/revenue-management/Ageing';
+import RevenueStatus from './pages/revenue-management/RevenueStatus';
+
 
 // ----------------------------------------------------------------------
 
@@ -79,6 +87,15 @@ export default function Router() {
             { path: 'onboarding/payment-status', element: <PaymentStatus /> },
             { path: 'onboarding/product', element: <Product /> },
             { path: 'onboarding/revenue', element: <Revenue /> },
+            // Account Management routes
+            {path: 'account-management/handover', element: <Handover />},
+            {path: 'account-management/managed-services', element: <ManagedServices />},
+            {path: 'account-management/acceptance-status', element: <AcceptanceStatus />},
+            {path: 'account-management/acceptance-documentation', element: <AcceptanceDocumentation />},
+            {path: 'account-management/project-closure', element: <ProjectClosure />},
+            // Revenue Management routes
+            {path: 'revenue-management/ageing', element: <Ageing />},
+            {path: 'revenue-management/revenue-status', element: <RevenueStatus />},
           ],
         },
        

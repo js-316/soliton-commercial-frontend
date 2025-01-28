@@ -42,11 +42,11 @@ const navConfig = [
     path: '/account-management',
     icon: getIcon('eva:briefcase-fill'),
     children: [
-      { title: 'Handover for Implementation', path: '/account-management/handover' },
-      { title: 'Managed Services/Network Deployment', path: '/account-management/managed-services' },
-      { title: 'Status', path: '/account-management/status' },
-      { title: 'Acceptance Documentation', path: '/account-management/acceptance-documentation' },
-      { title: 'Project Closure', path: '/account-management/project-closure' },
+      { title: 'Handover for Implementation', path: '/dashboard/account-management/handover' },
+      { title: 'Managed Services/Network Deployment', path: '/dashboard/account-management/managed-services' },
+      { title: 'Status', path: '/dashboard/account-management/acceptance-status' },
+      { title: 'Acceptance Documentation', path: '/dashboard/account-management/acceptance-documentation' },
+      { title: 'Project Closure', path: '/dashboard/account-management/project-closure' },
     ],
   },
   {
@@ -54,8 +54,8 @@ const navConfig = [
     path: '/revenue-management',
     icon: getIcon('eva:pie-chart-2-fill'),
     children: [
-      { title: 'Ageing', path: '/revenue-management/ageing' },
-      { title: 'Status', path: '/revenue-management/status' },
+      { title: 'Ageing', path: '/dashboard/revenue-management/ageing' },
+      { title: 'Status', path: '/dashboard/revenue-management/revenue-status' },
     ],
   },
   {
