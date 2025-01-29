@@ -57,6 +57,14 @@ const Onboarding = () => {
     });
   };
 
+  const handleDeleteProduct = (index) => {
+    const newProducts = formData.products.filter((_, i) => i !== index);
+    setFormData({
+      ...formData,
+      products: newProducts,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -199,14 +207,22 @@ const Onboarding = () => {
             <Grid item xs={12}>
               <Typography variant="h6">Products</Typography>
               {formData.products.map((product, index) => (
-                <TextField
-                  key={index}
-                  label={`Product ${index + 1}`}
-                  value={product}
-                  onChange={(e) => handleProductChange(e, index)}
-                  fullWidth
-                  sx={{ marginBottom: 2 }}
-                />
+                <Box key={index} display="flex" alignItems="center" mb={2}>
+                  <TextField
+                    label={`Product ${index + 1}`}
+                    value={product}
+                    onChange={(e) => handleProductChange(e, index)}
+                    fullWidth
+                  />
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => handleDeleteProduct(index)}
+                    sx={{ ml: 2 }}
+                  >
+                    Remove
+                  </Button>
+                </Box>
               ))}
               <Button variant="contained" onClick={handleAddProduct}>
                 Add Product
