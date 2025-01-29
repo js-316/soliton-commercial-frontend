@@ -27,6 +27,12 @@ const SearchbarStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     height: APPBAR_DESKTOP,
     padding: theme.spacing(0, 5),
+    position: 'relative',
+    width: 'auto',
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
+    backdropFilter: 'none',
+    WebkitBackdropFilter: 'none',
   },
 }));
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Typography, Grid, Paper, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
+import { Container, Typography, Grid, Paper, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, MenuItem, Select, FormControl, InputLabel, Modal } from '@mui/material';
 import { Link } from 'react-router-dom';
-
 
 const activities = ['Meeting', 'Phone call', 'Email - Request for a meeting', 'Email - Sent'];
 const stages = ['Meeting held', 'Requested - Quotations', 'Requested - Call Back', 'Requested - Meeting', 'Requested - Services of interest', 'Requested - Online Meeting', 'Requested - Proposal', 'Market Analysis'];
@@ -9,7 +8,7 @@ const outcomes = ['Prospectus', 'Pending', 'Positive', 'Neutral', 'Not intereste
 const followUps = ['Call back', 'Email - Sent', 'Requested - Meeting', 'Meeting - Set Date'];
 const finalSteps = ['Closed', 'Pending - Promising', 'N/A'];
 
-const prospects = [
+const initialProspects = [
   {
     id: 1,
     date: '08.08.24',
@@ -78,11 +77,42 @@ const Prospecting = () => {
     finalStep: '',
   });
 
+  const [prospects, setProspects] = useState(initialProspects);
+  const [selectedProspect, setSelectedProspect] = useState(null);
+  const [open, setOpen] = useState(false);
+
   const handleFilterChange = (e) => {
     setFilters({
       ...filters,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleOpen = (prospect) => {
+    setSelectedProspect(prospect);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedProspect(null);
+  };
+
+  const handleProspectChange = (e) => {
+    const { name, value } = e.target;
+    setSelectedProspect({
+      ...selectedProspect,
+      [name]: value,
+    });
+  };
+
+  const handleSave = () => {
+    setProspects((prevProspects) =>
+      prevProspects.map((prospect) =>
+        prospect.id === selectedProspect.id ? selectedProspect : prospect
+      )
+    );
+    handleClose();
   };
 
   const filteredProspects = prospects.filter((prospect) => {
@@ -208,6 +238,7 @@ const Prospecting = () => {
               <TableCell>Outcome</TableCell>
               <TableCell>Follow-up</TableCell>
               <TableCell>Final Steps</TableCell>
+              <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -225,11 +256,101 @@ const Prospecting = () => {
                 <TableCell>{prospect.outcome}</TableCell>
                 <TableCell>{prospect.followUp}</TableCell>
                 <TableCell>{prospect.finalSteps}</TableCell>
+                <TableCell>
+                  <Button variant="contained" color="primary" onClick={() => handleOpen(prospect)}>
+                    Edit
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+
+      <Modal open={open} onClose={handleClose}>
+        <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, bgcolor: 'background.paper', boxShadow: 24, p: 4 }}>
+          {selectedProspect && (
+            <>
+              <Typography variant="h6" gutterBottom>
+                Edit Prospect
+              </Typography>
+              <FormControl fullWidth sx={{ mb: 2 }}>
+                <InputLabel>Activity</InputLabel>
+                <Select
+                  name="activity"
+                  value={selectedProspect.activity}
+                  onChange={handleProspectChange}
+                >
+                  {activities.map((activity) => (
+                    <MenuItem key={activity} value={activity}>
+                      {activity}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <FormControl fullWidth sx={{ mb: 2 }}>
+                <InputLabel>Stage</InputLabel>
+                <Select
+                  name="stage"
+                  value={selectedProspect.stage}
+                  onChange={handleProspectChange}
+                >
+                  {stages.map((stage) => (
+                    <MenuItem key={stage} value={stage}>
+                      {stage}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <FormControl fullWidth sx={{ mb: 2 }}>
+                <InputLabel>Outcome</InputLabel>
+                <Select
+                  name="outcome"
+                  value={selectedProspect.outcome}
+                  onChange={handleProspectChange}
+                >
+                  {outcomes.map((outcome) => (
+                    <MenuItem key={outcome} value={outcome}>
+                      {outcome}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <FormControl fullWidth sx={{ mb: 2 }}>
+                <InputLabel>Follow-up</InputLabel>
+                <Select
+                  name="followUp"
+                  value={selectedProspect.followUp}
+                  onChange={handleProspectChange}
+                >
+                  {followUps.map((followUp) => (
+                    <MenuItem key={followUp} value={followUp}>
+                      {followUp}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <FormControl fullWidth sx={{ mb: 2 }}>
+                <InputLabel>Final Step</InputLabel>
+                <Select
+                  name="finalSteps"
+                  value={selectedProspect.finalSteps}
+                  onChange={handleProspectChange}
+                >
+                  {finalSteps.map((finalStep) => (
+                    <MenuItem key={finalStep} value={finalStep}>
+                      {finalStep}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <Button variant="contained" color="primary" onClick={handleSave}>
+                Save
+              </Button>
+            </>
+          )}
+        </Box>
+      </Modal>
     </Container>
   );
 };
