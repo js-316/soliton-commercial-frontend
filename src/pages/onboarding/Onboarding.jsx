@@ -191,17 +191,20 @@ const Onboarding = () => {
                   <MenuItem value="Pending">Pending</MenuItem>
                 </Select>
               </FormControl>
+              
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h6">Paid Percentage</Typography>
               <TextField
                 label="Paid Percentage"
                 name="paidPercentage"
-                type="number"
                 value={formData.paidPercentage}
                 onChange={handleChange}
                 fullWidth
-                required
+                type="number"
               />
-              <Typography variant="body1">
-                Balance: ${calculateBalance()}
+              <Typography variant="body2" gutterBottom>
+                Balance: {calculateBalance()}
               </Typography>
             </Grid>
             <Grid item xs={12}>
