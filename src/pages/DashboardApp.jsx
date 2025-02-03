@@ -17,17 +17,20 @@ import {
   AppCurrentSubject,
   AppConversionRates,
 } from '../sections/@dashboard/app';
-
+import { selectUser} from '../features/auth/authSlice';
+import { useSelector } from 'react-redux';
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
   const theme = useTheme();
+  const user = useSelector(selectUser);
+  console.log(user);
 
   return (
     <Page title="Dashboard">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back
+          Hi, {user.full_name}. Welcome back
         </Typography>
 
         <Grid container spacing={3}>
